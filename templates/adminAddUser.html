@@ -1,0 +1,34 @@
+<ion-view title="Admin - Add User" id="page6" class=" ">
+    <ion-content padding="true" class="has-header">
+        <form id="adminAddUser-form7" class="list ">
+            <label class="item item-input " id="adminAddUser-input7">
+                <span class="input-label">Email</span>
+                <input type="text" ng-model="user.email" placeholder="email">
+            </label>
+            <label class="item item-input " id="adminAddUser-input8">
+                <span class="input-label">Name</span>
+                <input type="text" ng-model="user.name" placeholder="Name">
+            </label>
+            <label class="item item-input " id="adminAddUser-input9">
+                <span class="input-label">Address</span>
+                <input type="text" ng-model="user.address" placeholder="address">
+            </label>
+            <label class="item item-input " id="adminAddUser-input10">
+                <span class="input-label">BloodGroup</span>
+                <input type="text" ng-model="user.bloodgroup" placeholder="blood group">
+            </label>
+            <label class="item item-input " id="adminAddUser-input11">
+                <span class="input-label">Phone</span>
+                <input type="text" ng-model="user.phone" placeholder="phone">
+            </label>
+            <label class="item item-select " id="adminAddUser-select1">
+                <span class="input-label">Select</span>
+                <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </label>
+        </form>
+        <button ng-click="addUser(user)" id="adminAddUser-button6" class=" button button-positive  button-block ">Add</button>
+    </ion-content>
+</ion-view>
