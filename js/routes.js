@@ -10,7 +10,7 @@ angular.module('app.routes', [])
     
   
 
-      .state('bloodBank', {
+  .state('bloodBank', {
     url: '/',
     templateUrl: 'templates/bloodBank.html',
     controller: 'bloodBankCtrl'
@@ -29,7 +29,7 @@ angular.module('app.routes', [])
   })
 
   .state('profile', {
-    url: '/page5',
+    url: '/page5/:_id',
     templateUrl: 'templates/profile.html',
     controller: 'profileCtrl'
   })

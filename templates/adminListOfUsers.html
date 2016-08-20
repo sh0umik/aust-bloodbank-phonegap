@@ -2,21 +2,53 @@
     <ion-content padding="true" class="has-header">
 
         <ion-list id="adminListOfUsers-list4" class=" ">
-            <ion-item class="item-avatar  " id="adminListOfUsers-list-item8">
-                <h2>{{ users }}</h2>
+            <ion-item ng-repeat="user in users" ui-sref="profile({ _id : user._id })" class="item-avatar  " id="adminListOfUsers-list-item8">
+                <h2>{{ user.email }}  <a ng-click="editUser(user)" class="button icon-left ion-edit">Edit</a></h2>
+
             </ion-item>
-            <ion-item class="item-avatar  " id="adminListOfUsers-list-item16">
-                <h2>Protik Ahmed</h2>
-            </ion-item>
-            <ion-item class="item-avatar  " id="adminListOfUsers-list-item17">
-                <h2>Oishy Khan</h2>
-            </ion-item>
-            <ion-item class="item-avatar  " id="adminListOfUsers-list-item9">
-                <h2>Arpan Barai</h2>
-            </ion-item>
-            <ion-item class="item-avatar  " id="adminListOfUsers-list-item10">
-                <h2>Shagor Chaudhuri</h2>
-            </ion-item>
+        
         </ion-list>
     </ion-content>
 </ion-view>
+
+  <script id="edit-user.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar>
+        <h1 class="title">Edit/Delete Users</h1> 
+        <div class="buttons">
+        <button ng-hide="isAdd" ng-click="deleteUser(user)" class="button button-icon icon ion-trash-a"></button>
+        </div>
+      </ion-header-bar>
+      <ion-content>
+        <div class="list list-inset">
+          <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" placeholder="Name" ng-model="user.name">
+          </label>
+        <label class="item item-input">
+        <span class="input-label">Email</span>
+          <input type="text" placeholder="Email" ng-model="user.email">
+          </label>
+        <label class="item item-input">
+        <span class="input-label">Address</span>
+          <input type="text" placeholder="Address" ng-model="user.address">
+          </label>
+                  <label class="item item-input">
+        <span class="input-label">Blood Group</span>
+          <input type="text" placeholder="Address" ng-model="user.bloodgroup" disabled>
+          </label>
+                  <label class="item item-input">
+        <span class="input-label">Phone</span>
+          <input type="text" placeholder="Address" ng-model="user.phone">
+          </label>
+                  <label class="item item-input">
+        <span class="input-label">Gender</span>
+          <input type="text" placeholder="Address" ng-model="user.address">
+          </label>
+        </div>
+        <div class="padding">
+          <button ng-click="saveUser(user)" class="button button-block button-positive activated">Save</button>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script> 

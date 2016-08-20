@@ -2,25 +2,27 @@
     <ion-content padding="true" class="has-header">
         <form id="profile-form5" class="list ">
             <label class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input type="search" placeholder="Dhanmondi , Dhaka">
+                <a ng-click="search(str)" class="icon ion-search placeholder-icon">Search</a>
+                <input type="search" ng-model="str.str" placeholder="Place or Blood Group">
             </label>
         </form>
-        <h1 id="profile-heading4" style="color:#000000;text-align:center;" class=" ">B+</h1>
+        <h1 id="profile-heading4" style="color:#000000;text-align:center;" class=" ">{{ user.bloodgroup }}</h1>
         <div class="list card " id="profile-card21">
-            <ion-item id="profile-list-item1" class="  ">Smita Laboni Barai</ion-item>
+            <ion-item id="profile-list-item1" class="  ">{{ user.name }}</ion-item>
             <div class=" item item-image">
                 <img src="img/K4tyLN1rQ1C5MAdt7NJK_13246046_10204695686391155_1990591772_n.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
             </div>
             <div class="item item-body " id="profile-list-item-container1">
                 <p id="profile-markdown1" style="margin-top:0px;color:#000000;" class=" ">
-                    <strong>Address :</strong>KajPara pnirtanki er paser chipa goli</p>
+                    <strong>Address :</strong>{{ user.address }}</p>
                 <form id="profile-form3" class="list ">
                     <label class="item item-input " id="profile-textarea1">
                         <span class="input-label">14 দিন আগে রক্ত দিয়েছে</span><textarea placeholder=""></textarea>
                     </label>
                 </form>
-                <a href="tel:01829367754" id="profile-button10" class=" button button-positive  button-block ">Call Smita</a>
+                <a href="tel:{{ user.phone }}" id="profile-button10" class=" button button-positive  button-block ">Call Smita</a>
+
+                <a ng-click="giveFeedback(user)" id="profile-button10" class=" button button-balanced  button-block ">Give Feedback</a>
             </div>
         </div>
         <p id="profile-markdown4" style="color:#000000;" class=" ">Smita's Donation
@@ -36,3 +38,22 @@
         </ion-list>
     </ion-content>
 </ion-view>
+
+ <script id="give-feedback.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar>
+        <h1 class="title"> Give Feedback to {{ user.name }}</h1> 
+      </ion-header-bar>
+      <ion-content>
+        <div class="list list-inset">
+          <label class="item item-input">
+          <span class="input-label">Reason</span>
+          <input type="text" placeholder="Reason" ng-model="feedback.reason">
+          </label>
+        </div>
+        <div class="padding">
+          <button ng-click="saveFeedback(feedback, user)" class="button button-block button-positive activated">Give</button>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script> 
